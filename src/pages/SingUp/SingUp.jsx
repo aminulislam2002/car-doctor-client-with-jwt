@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SingUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -16,11 +17,10 @@ const SingUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        updateUserProfile(result.user, name)
+        updateUserProfile(result.user, name);
         console.log(user);
       })
       .catch((error) => console.log(error));
-
   };
 
   return (
@@ -31,7 +31,7 @@ const SingUp = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <h1 className="text-3xl font-bold text-center">Login now!</h1>
+            <h1 className="text-3xl font-bold text-center">Sing Up now!</h1>
             <form onSubmit={handleSingUp}>
               <div className="form-control">
                 <label className="label">
@@ -66,6 +66,7 @@ const SingUp = () => {
                 Login
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
