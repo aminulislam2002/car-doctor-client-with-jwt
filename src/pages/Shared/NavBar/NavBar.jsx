@@ -5,9 +5,12 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        localStorage.removeItem("car-doctor-access-token");
+      })
       .catch((error) => console.log(error));
   };
 
