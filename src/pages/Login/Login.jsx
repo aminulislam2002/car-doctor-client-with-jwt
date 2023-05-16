@@ -37,7 +37,7 @@ const Login = () => {
           .then((data) => {
             console.log("jwt response", data);
 
-            // Warning! Local storage is not the best place to store access token (Second place!)
+            // Warning! Local storage is not the best place to store access token (Second place!) 
 
             localStorage.setItem("car-doctor-access-token", data.token);
 
